@@ -1,0 +1,113 @@
+
+
+
+{% extends "MV_HISTORY/base.html" %}
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../static/main/css/boot.css" rel="stylesheet">
+      <link href="../../static/main/css/album.css" rel="stylesheet">
+
+      <style>
+   t1 {
+    font-size: 170%;
+   }
+
+.card-img-top {
+    width: 200px; /* Фиксированная ширина */
+    height: 60px; /* Фиксированная высота */
+    object-fit: cover; /* Обрезать и сохранить пропорции */
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+}
+
+  </style>
+  </head>
+
+
+
+{% load static %}
+
+{% block title %}Обучение{% endblock %}
+
+
+
+{% block content %}
+      <div class="album py-5 bg-light">
+        <div class="container">
+
+          <div class="row">
+
+  {% if articles %}
+        {% for article in articles %}
+             <div class="col-md-4 mt-6">
+              <div class="card mb-4 box-shadow mt-6">
+                <img class="card-img-top mb-6" src="{% static article.img %}" alt="Card image cap">
+
+                <div class="card-body">
+                  <p class="card-text">{{ article.text }}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary"><a href={% url 'article' article_id=article.id %}>Читать</a></button>
+
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No articles are available.</p>
+    {% endif %}
+              {% endblock %}
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Вернуться наверх</a>
+        </p>
+        <p>Играйте в футбол!</p>
+
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <p>2024</p>
+
+</body>
+</html>

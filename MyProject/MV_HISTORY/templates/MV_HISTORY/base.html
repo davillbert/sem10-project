@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <meta charset="UTF-8">
+
+   <title>DEPARTMENT HISTORY</title>
+
+<link href="../../static/main/css/boot.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+
+ <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">Матч века</h4>
+              <p class="text-muted">Грандиозный футбольный праздник МФТИ.
+                  Каждые выходные мая два факультета встречаются на коробке
+                  кампуса физтеха и целые сутки играю в футбол.
+                  Мероприятие богато событиями: яркие выступления групп подержки,
+                  женские матчи, реализации самых рисокованных стратегий,
+                  настоящие битвы характеров - всё это не дает заскучать зрителю.</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Контакты</h4>
+              <ul class="list-unstyled">
+                <li><a href="#" class="text-white">Почта</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </header>
+
+    <main role="main">
+
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">{% block title %}Футбол МФТИ{% endblock %}</h1>
+          <p class="lead text-muted"> Матчи века играются уже более пятидесяти лет,
+              за это время многое менялось, однако внимание и интерес не угасали ни на год. На платформе есть возможност ознакомиться
+              с историей матчей века каждого факультета и физтех-школы, а также пройти тест на знания хронологий и основных событий МВ.
+
+          </p>
+          <p>
+            <a href="#" class="btn btn-primary my-2">Пройти тест на знание Матчей века</a>
+            <a href="#" class="btn btn-secondary my-2">Предложит свой вопрос</a>
+          </p>
+        </div>
+      </section>
+            {% block content %}
+    {% endblock %}
+
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Вернуться наверх</a>
+        </p>
+        <p>Играйте в футбол!</p>
+
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <p>2024</p>
+
+</body>
+</html>
