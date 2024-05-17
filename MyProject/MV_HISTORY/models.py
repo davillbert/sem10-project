@@ -41,6 +41,7 @@ class Article(models.Model):
 class Task(models.Model):
     title = models.CharField(max_length=150)
     quest = models.CharField(max_length=550)
+    right = models.CharField(max_length=150)
     v1 = models.CharField(max_length=150)
     v2 = models.CharField(max_length=150)
     v3 = models.CharField(max_length=150)
@@ -63,3 +64,11 @@ class Task(models.Model):
         return '{} {}'.format(self.title, self.created_date)
 
 
+class Answer(models.Model):
+    question = models.ForeignKey(Task, on_delete=models.CASCADE)
+    text = models.CharField(max_length=255)
+    is_correct = models.BooleanField(default=False)
+
+
+    def __str__(self):
+        return '{} {}'.format(self.question, self.is_correct)

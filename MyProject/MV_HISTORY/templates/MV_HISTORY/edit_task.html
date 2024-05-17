@@ -1,0 +1,15 @@
+{% extends "MV_HISTORY/base.html" %}
+
+{% block title %}Добавить новое задание{% endblock %}
+
+{% block content %}
+   <form method="POST" class="post-form">{% csrf_token %}
+
+
+
+            <div class="text-center">
+                   {{ form.as_p }}
+                </div>
+       <button type="submit" class="save btn btn-default"><h3 class="text-center">Сохранить</h3></button>
+   </form>
+{% endblock %}

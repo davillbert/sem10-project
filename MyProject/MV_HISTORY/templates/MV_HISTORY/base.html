@@ -42,15 +42,17 @@
 
       <section class="jumbotron text-center">
         <div class="container">
-          <h1 class="jumbotron-heading">{% block title %}Футбол МФТИ{% endblock %}</h1>
+          <h1 class="jumbotron-heading"><a href="{% url 'tasks' %}">{% block title %}Футбол МФТИ{% endblock %}</a></h1>
           <p class="lead text-muted"> Матчи века играются уже более пятидесяти лет,
               за это время многое менялось, однако внимание и интерес не угасали ни на год. На платформе есть возможност ознакомиться
               с историей матчей века каждого факультета и физтех-школы, а также пройти тест на знания хронологий и основных событий МВ.
 
           </p>
           <p>
-            <a href="#" class="btn btn-primary my-2">Пройти тест на знание Матчей века</a>
-            <a href="#" class="btn btn-secondary my-2">Предложит свой вопрос</a>
+           <button type="button" class="btn btn-primary my-2"><a href="{% url 'quiz' %}">Перейти к викторине</a></button>
+
+
+            <button type="button" class="btn btn-secondary my-2"><a href="{% url 'new_tasks' %}">Предложить свой вопрос</a></button>
           </p>
         </div>
       </section>

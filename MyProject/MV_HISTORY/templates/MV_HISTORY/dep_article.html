@@ -38,7 +38,7 @@
          {% if info_article %}
         {% for i in info_article %}
              <strong> {{i.Year}} </strong>
-      <p>{{i.Department2}}</p>
+      <p>{{i.Holidays}}</p>
       <div class="row">
         <div class="col-md-8">
           {{i.Year }}
@@ -48,6 +48,7 @@
           </div>
         </div>
         <div class="col-md-4"><t1>{{i.ScoreDepartment1}}:{{i.ScoreDepartment2}}</t1></div>
+           <div class="col-md-4"><t1>{{i.text}}</t1></div>
       </div>
 
           <hr>

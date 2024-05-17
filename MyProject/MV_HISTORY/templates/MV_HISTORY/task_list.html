@@ -1,0 +1,133 @@
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/grid/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../static/main/css/boot.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../static/main/css/grid.css" rel="stylesheet">
+
+
+      <style>
+   t1 {
+    font-size: 170%;
+   }
+
+img {
+    width: 30%; /* Уменьшить ширину изображения на 50% */
+    height: auto; /* Сохранить пропорции высоты */
+}
+  </style>
+  </head>
+
+{% load static %}
+  <body>
+<div class="container">
+    <hr>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="text-center">Викторина матчей века</h3>
+                <img src="{% static 'MV_HISTORY/images/mipt.png' %}" class="mx-auto d-block" alt="Изображение">
+            </div>
+        </div>
+    </div>
+
+    {% if task_info %}
+        {% for i in task_info %}
+            <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+                <h1 class="display-4">{{ i.quest }}</h1>
+                <p class="lead">{{ i.text }}</p>
+            </div>
+
+            <div class="container">
+                <div class="card-deck mb-4 text-center">
+                    <div class="card mb-4 box-shadow">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">{{ i.v1 }}</h4>
+                        </div>
+                        <div class="card-body">
+                            <button type="button" class="btn btn-lg btn-block btn-primary" data-answer="{{ i.v1 }}" data-right="{{ i.right }}">Выбрать</button>
+                            <!-- Условное отображение текста -->
+                            <div class="result-text hidden" id="resultText{{ i.id }}_v1">
+                                <p id="responseText{{ i.id }}_v1"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4 box-shadow">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">{{ i.v2 }}</h4>
+                        </div>
+                        <div class="card-body">
+                            <button type="button" class="btn btn-lg btn-block btn-primary" data-answer="{{ i.v2 }}" data-right="{{ i.right }}">Выбрать</button>
+                            <!-- Условное отображение текста -->
+                            <div class="result-text hidden" id="resultText{{ i.id }}_v2">
+                                <p id="responseText{{ i.id }}_v2"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4 box-shadow">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">{{ i.v3 }}</h4>
+                        </div>
+                        <div class="card-body">
+                            <button type="button" class="btn btn-lg btn-block btn-primary" data-answer="{{ i.v3 }}" data-right="{{ i.right }}">Выбрать</button>
+                            <!-- Условное отображение текста -->
+                            <div class="result-text hidden" id="resultText{{ i.id }}_v3">
+                                <p id="responseText{{ i.id }}_v3"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4 box-shadow">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">{{ i.v5 }}</h4>
+                        </div>
+                        <div class="card-body">
+                            <button type="button" class="btn btn-lg btn-block btn-primary" data-answer="{{ i.v5 }}" data-right="{{ i.right }}">Выбрать</button>
+                            <!-- Условное отображение текста -->
+                            <div class="result-text hidden" id="resultText{{ i.id }}_v5">
+                                <p id="responseText{{ i.id }}_v5"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p>No articles are available.</p>
+    {% endif %}
+</div> <!-- /container -->
+
+<script>
+    document.querySelectorAll('.btn-primary').forEach(button => {
+        button.addEventListener('click', function() {
+            var userAnswer = this.getAttribute('data-answer');
+            var correctAnswer = this.getAttribute('data-right');
+            var responseText = userAnswer === correctAnswer ? 'Верно:)' : 'Неверно:(';
+            var resultTextId = 'resultText' + this.parentElement.querySelector('.result-text').id.match(/\d+_\w+$/)[0];
+            var responseTextId = 'responseText' + this.parentElement.querySelector('.result-text').id.match(/\d+_\w+$/)[0];
+
+            document.getElementById(responseTextId).textContent = responseText;
+            document.getElementById(resultTextId).classList.remove('hidden');
+        });
+    });
+</script>
+</body>
+</html>

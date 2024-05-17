@@ -1,6 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import os
-from .models import Article
+from .models import Article, Task, Answer
+from .forms import TaskForm, QuizForm
+
+from django.utils import timezone
+
 base_info = [
     {
         'id': 1,
@@ -77,6 +81,37 @@ def get_article(request, info_article_id):
     info = Article.objects.filter(title__contains=depart).values()
     return render(request, 'MV_HISTORY/dep_article.html',  {'info_article': info})
 
-def get_task(request, task_number):
-    info = Article.objects.filter(id = task_number).values()
-    return render(request, 'MV_HISTORY/task.html',  {'task_info': info})
+def tasks(request):
+    info = Task.objects.all().values()
+    return render(request, 'MV_HISTORY/task_list.html',  {'task_info': info})
+
+
+def new_tasks(request):
+   if request.method == "POST":
+       form = TaskForm(request.POST)
+       if form.is_valid():
+           article = form.save(commit=False)
+           article.published_date = timezone.now()
+           article.save()
+           return redirect('tasks')
+   else:
+       form = TaskForm()
+   return render(request, 'MV_HISTORY/edit_task.html', {'form': form})
+
+
+
+
+
+def quiz_view(request):
+    questions = Task.objects.all()
+    if request.method == 'POST':
+        form = QuizForm(request.POST, questions=questions)
+        if form.is_valid():
+            results = {}
+            for question in questions:
+                selected_answer = form.cleaned_data[str(question.id)]
+                results[question.quest] = selected_answer == question.right
+            return render(request, 'MV_HISTORY/quiz_result.html', {'results': results, 'result_var': selected_answer})
+    else:
+        form = QuizForm(questions=questions)
+    return render(request, 'MV_HISTORY/quiz.html', {'form': form})

@@ -1,0 +1,83 @@
+
+
+
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <!-- Bootstrap core CSS -->
+    <link href="static '../../static/main/css/boot.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../static/main/css/grid.css" rel="stylesheet">
+
+    <style>
+        t1 {
+            font-size: 170%;
+        }
+
+        img {
+            width: 30%; /* Уменьшить ширину изображения на 50% */
+            height: auto; /* Сохранить пропорции высоты */
+        }
+
+        .form-check-label {
+            font-size: 1.2em; /* Увеличение шрифта для меток радиокнопок */
+        }
+    <style>
+        t1 {
+            font-size: 170%;
+        }
+
+        img {
+            width: 30%; /* Уменьшить ширину изображения на 50% */
+            height: auto; /* Сохранить пропорции высоты */
+        }
+
+        .form-check-label {
+            font-size: 1.2em; /* Увеличение шрифта для меток радиокнопок */
+        }
+
+        .form-check-input {
+            margin-right: 10px; /* Отступ справа от радиокнопок */
+        }
+    </style>
+</head>
+
+
+{% load static %}
+<body>
+<div class="container mt-5">
+
+
+            <div class="mb-4">
+                <h3 class="text-center">Результаты</h3>
+                <div class="form-check text-center">
+                   {% for question, result in results.items %}
+    <p><h3 class="text-center">{{ question }}</h3></p>
+    {% if result %}
+                      <div class="form-check text-center">
+        <p><label class="form-check-label"> Верно! Это действительно "{{result_var}}" :)</label></p>
+                           </div>
+    {% else %}
+                            <div class="form-check text-center">
+        <p><label class="form-check-label"> Неверно. Это не "{{result_var}}" :( Рекомендуем пройти обучение еще раз:)</label></p>
+                                 </div>
+    {% endif %}
+{% endfor %}
+
+
+
+                </div>
+            </div>
+
+          </div>
+
+</body>
+</html>
