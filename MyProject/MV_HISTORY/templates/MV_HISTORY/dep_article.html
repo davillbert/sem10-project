@@ -33,46 +33,31 @@
     <div class="container">
   <hr>
 
-  <h3>Хроника матчей века {{ article.title }}</h3>
-      <strong>2024 </strong>
-      <p>Корпорация Роскосмос</p>
+  <h3>Хроника матчей века {{ info_article.title }}</h3>
+
+         {% if info_article %}
+        {% for i in info_article %}
+             <strong> {{i.Year}} </strong>
+      <p>{{i.Department2}}</p>
       <div class="row">
         <div class="col-md-8">
-          2024
+          {{i.Year }}
           <div class="row">
-            <div class="col-md-6">{{ article.title }}</div>
-            <div class="col-md-6">РОСКОСМОС</div>
+            <div class="col-md-6">{{ i.Department1 }}</div>
+            <div class="col-md-6">{{ i.Department2 }}</div>
           </div>
         </div>
-        <div class="col-md-4"><t1>100:76</t1></div>
+        <div class="col-md-4"><t1>{{i.ScoreDepartment1}}:{{i.ScoreDepartment2}}</t1></div>
       </div>
 
           <hr>
-        <strong>2023 </strong>
-    <p>Корпорация Роскосмос</p>
-      <div class="row">
-        <div class="col-md-8">
-          2023
-          <div class="row">
-            <div class="col-md-6">{{ article.title }}</div>
-            <div class="col-md-6">РОСКОСМОС</div>
-          </div>
-        </div>
-        <div class="col-md-4"><t1>100:76</t1></div>
-      </div>
- <hr>
-        <strong>2022 </strong>
-    <p>Физтех-школа Ландау Физика Исследования</p>
-      <div class="row">
-        <div class="col-md-8">
-          2022
-          <div class="row">
-            <div class="col-md-6">{{ article.title }}</div>
-            <div class="col-md-6">ЛФИ</div>
-          </div>
-        </div>
-        <div class="col-md-4"><t1>100:76</t1></div>
-      </div>
+        {% endfor %}
+    {% else %}
+        <p>No articles are available.</p>
+    {% endif %}
+
+
+
 
     </div> <!-- /container -->
 
