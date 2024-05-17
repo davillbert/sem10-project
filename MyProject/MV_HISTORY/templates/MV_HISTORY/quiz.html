@@ -49,6 +49,39 @@
 
 {% load static %}
 <body>
+
+ <header>
+      <div class="collapse bg-dark show" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">Матч века</h4>
+              <p class="text-muted">Грандиозный футбольный праздник МФТИ.
+                  Каждые выходные мая два факультета встречаются на коробке
+                  кампуса физтеха и целые сутки играю в футбол.
+                  Мероприятие богато событиями: яркие выступления групп подержки,
+                  женские матчи, реализации самых рисокованных стратегий,
+                  настоящие битвы характеров - всё это не дает заскучать зрителю.</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Контакты</h4>
+              <ul class="list-unstyled">
+                <li><a href="#" class="text-white">Почта</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </header>
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'index' %}">Главная</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <!-- Добавьте дополнительные ссылки для навигации, если нужно -->
+            </ul>
+        </div>
+    </nav>
 <div class="container mt-5">
     <form method="post">
         {% csrf_token %}
@@ -66,5 +99,14 @@
         </div>
     </form>
 </div>
+  <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Вернуться наверх</a>
+        </p>
+        <p>Играйте в футбол! (Василий Уткин)</p>
+
+      </div>
+    </footer>
 </body>
 </html>

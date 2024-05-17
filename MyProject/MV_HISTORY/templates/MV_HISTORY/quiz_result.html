@@ -50,34 +50,63 @@
     </style>
 </head>
 
-
+{% load extras %}
 {% load static %}
 <body>
-<div class="container mt-5">
 
-
-            <div class="mb-4">
-                <h3 class="text-center">Результаты</h3>
-                <div class="form-check text-center">
-                   {% for question, result in results.items %}
-    <p><h3 class="text-center">{{ question }}</h3></p>
-    {% if result %}
-                      <div class="form-check text-center">
-        <p><label class="form-check-label"> Верно! Это действительно "{{result_var}}" :)</label></p>
-                           </div>
-    {% else %}
-                            <div class="form-check text-center">
-        <p><label class="form-check-label"> Неверно. Это не "{{result_var}}" :( Рекомендуем пройти обучение еще раз:)</label></p>
-                                 </div>
-    {% endif %}
-{% endfor %}
-
-
-
-                </div>
+ <header>
+      <div class="collapse bg-dark show" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">Матч века</h4>
+              <p class="text-muted">Грандиозный футбольный праздник МФТИ.
+                  Каждые выходные мая два факультета встречаются на коробке
+                  кампуса физтеха и целые сутки играю в футбол.
+                  Мероприятие богато событиями: яркие выступления групп подержки,
+                  женские матчи, реализации самых рисокованных стратегий,
+                  настоящие битвы характеров - всё это не дает заскучать зрителю.</p>
             </div>
-
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Контакты</h4>
+              <ul class="list-unstyled">
+                <li><a href="#" class="text-white">Почта</a></li>
+              </ul>
+            </div>
           </div>
+        </div>
+      </div>
 
+    </header>
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'index' %}">Главная</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <!-- Добавьте дополнительные ссылки для навигации, если нужно -->
+            </ul>
+        </div>
+    </nav>
+<div class="container mt-5">
+    <h2 class="text-center">Результаты Викторины</h2>
+    <ul class="list-group">
+        {% for question, is_correct in results.items %}
+            <li class="list-group-item">
+                <h5>{{ question }}</h5>
+                <p>Ваш ответ: {{ result_var|dict_get:question }}</p>
+                <p>{{ is_correct|yesno:"Верно!:),Неверно:..(" }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'quiz' %}" class="btn btn-primary mt-3">Попробовать еще раз</a>
+</div>
 </body>
+  <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Вернуться наверх</a>
+        </p>
+        <p>Играйте в футбол! (Василий Уткин)</p>
+
+      </div>
+    </footer>
 </html>

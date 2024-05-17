@@ -108,10 +108,12 @@ def quiz_view(request):
         form = QuizForm(request.POST, questions=questions)
         if form.is_valid():
             results = {}
+            selected_answers = {}
             for question in questions:
                 selected_answer = form.cleaned_data[str(question.id)]
                 results[question.quest] = selected_answer == question.right
-            return render(request, 'MV_HISTORY/quiz_result.html', {'results': results, 'result_var': selected_answer})
+                selected_answers[question.quest] = selected_answer  # Запоминаем выбранный ответ
+            return render(request, 'MV_HISTORY/quiz_result.html', {'results': results, 'result_var': selected_answers})
     else:
         form = QuizForm(questions=questions)
     return render(request, 'MV_HISTORY/quiz.html', {'form': form})
