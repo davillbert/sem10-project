@@ -18,8 +18,7 @@
 
     <!-- Custom styles for this template -->
     <link href="../../static/main/css/grid.css" rel="stylesheet">
-
-
+<link href="../../static/main/css/styles.css"  rel="stylesheet" >
       <style>
    t1 {
     font-size: 170%;
@@ -30,7 +29,7 @@
   </head>
 
   <body>
-
+<div class="overlay">
 
  <header>
       <div class="collapse bg-dark show" id="navbarHeader">
@@ -58,7 +57,7 @@
     </header>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'home' %}">Главная</a>
+        <a class="navbar-brand" href="{% url 'index' %}">Главная</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <!-- Добавьте дополнительные ссылки для навигации, если нужно -->
@@ -106,6 +105,7 @@
 
       </div>
     </footer>
+</div>
   </body>
 
 </html>

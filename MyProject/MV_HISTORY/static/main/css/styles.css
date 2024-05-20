@@ -1,0 +1,16 @@
+body {
+    background-image: url('../../MV_HISTORY/images/box.jpg'); /* Укажите путь к вашему изображению */
+    background-size: cover; /* Изображение будет растянуто на всю страницу */
+    background-attachment: fixed; /* Фон остается на месте при прокрутке */
+    background-position: center; /* Центрирование изображения */
+    background-repeat: no-repeat; /* Изображение не повторяется */
+}
+
+.overlay {
+    background-color: rgba(255, 255, 255, 0.5); /* Белая подложка с прозрачностью */
+    padding: 15px; /* Отступы вокруг контента */
+    border-radius: 10px; /* Скругленные углы */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень для подложки */
+    max-width: 800px; /* Максимальная ширина подложки */
+    margin: auto; /* Центрирование подложки */
+}
